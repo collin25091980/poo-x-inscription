@@ -39,3 +39,15 @@ Pour cela pensez bien le fameux **grain de sel** que nous avions fait lorsque du
 
 Je veux que vous utiliser **une classe Securite (sans accent non plus) qui continedra la méthode suivante :
 - chiffrer($password) - Retourne le mot de passe de façon chiffrée
+
+## Etape 4 - Créez votre utilisateur et ajoutez-le
+
+Pour terminer notre projet, occupons-nous de notre utilisateur.
+
+Je vous propose de créer **une classe Utilisateur** qui contiendra tous les **attributs nécessaires**, tous les **getters** et **setters** nécessaires, mais aussi bien entendu un **constructeur**. Je ne vous aide pas plus davantage volontairement.
+
+Cette classe devra contenir les méthodes suivantes :
+- enregistrer() - Enregistre l'utilsateur dans la base de données
+- creerLesSessions() - Initialise les sessions qui permettent de montrer que l'utilisateur est bien connecté.
+
+Allez, vous pouvez le faire, croyez en vous autant que je crois en vous !

@@ -10,6 +10,7 @@
 
       // Includes Classes
       require_once('classes/Verifier.php');
+      require_once('classe/Securite.php');
 
       // Verification syntaxe email
       if(!Verifier::syntaxeEmail($email)) {
