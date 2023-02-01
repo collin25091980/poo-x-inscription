@@ -30,3 +30,12 @@ Cette table contient **quatre** colonnes :
 - doublonEmail($email) - Retourne true si l'email est déjà utilisé, false dans le cas contraire
 
 Amusez-vous bien !
+
+## Etape 3 - Chiffrez le mot de passe
+
+Dans cette troisième étape, je vous recommande de chiffrer le mot de passe de notre utilisateur
+
+Pour cela pensez bien le fameux **grain de sel** que nous avions fait lorsque du projet sur Netflix pour protéger les mots de passe même si notre base de données venait à être dérobée.
+
+Je veux que vous utiliser **une classe Securite (sans accent non plus) qui continedra la méthode suivante :
+- chiffrer($password) - Retourne le mot de passe de façon chiffrée
