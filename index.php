@@ -10,7 +10,8 @@
 
       // Includes Classes
       require_once('classes/Verifier.php');
-      require_once('classe/Securite.php');
+      require_once('classes/Securite.php');
+      require_once('classes/Utilisateur.php');
 
       // Verification syntaxe email
       if(!Verifier::syntaxeEmail($email)) {
@@ -33,6 +34,14 @@
       // Chiffrage du mot de passe
       Securite::chiffrer($password);
 
+      // Création Utilisateur
+      $utilisateur = new Utilisateur($pseudo, $email, $password);
+      $utilisateur->enregistrer();
+      $utilisateur->creerLesSession();
+
+      // Redirection
+      header('location: index.php?success=true');
+      exit();
    }
 
 ?>
