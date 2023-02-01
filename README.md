@@ -53,3 +53,5 @@ Cette classe devra contenir les méthodes suivantes :
 Allez, vous pouvez le faire, croyez en vous autant que je crois en vous !
 
 ## Correction
+
+## [Bonus] Charger automatique toutes les classes
