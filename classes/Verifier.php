@@ -11,12 +11,7 @@
          $req->execute([$email]);
 
          while($result = $req->fetch()) {
-            if($result['emailNumber'] != 0) {
-               return true;
-            }
-            else {
-               return false;
-            }
+            return $result['emailNumber'] != 0;
          }
       }
 
@@ -26,12 +21,7 @@
          $req->execute([$pseudo]);
 
          while($result = $req->fetch()) {
-            if($result['pseudoNumber'] != 0) {
-               return true;
-            }
-            else {
-               return false;
-            }
+            return $result['pseudoNumber'] != 0;
          }
       }
    }

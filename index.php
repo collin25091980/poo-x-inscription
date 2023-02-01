@@ -2,44 +2,44 @@
 
    session_start();
 
+   // Inclure les classes
+      require_once('classes/Verifier.php');
+      require_once('classes/Securite.php');
+      require_once('classes/Utilisateur.php');
+
    if(!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['password'])) {
       // Variables
       $pseudo     = htmlspecialchars($_POST['pseudo']);
       $email      = htmlspecialchars($_POST['email']);
       $password   = htmlspecialchars($_POST['password']);
 
-      // Includes Classes
-      require_once('classes/Verifier.php');
-      require_once('classes/Securite.php');
-      require_once('classes/Utilisateur.php');
-
-      // Verification syntaxe email
+      // Verifier la syntaxe de l'email
       if(!Verifier::syntaxeEmail($email)) {
-         header('location: index.php?error=true&message=Votre adresse mail est incorrecte.');
+         header('location: index.php?error=true&message=Veuillez vérifier le format de votre adresse email.');
          exit();
       }
 
-      // Vérification doublon email
+      // Vérifier doublon de l'email
       if(Verifier::doublonEmail($email)) {
-         header('location: index.php?error=true&message=Votre adresse email est déjà utilisé par un autre utilisateur');
+         header('location: index.php?error=true&message=Cette adresse email est déjà utilisée.');
          exit();
       }
 
-      // Vérification doublon pseudo 
+      // Verifier doublon du pseudo 
       if(Verifier::doublonPseudo($pseudo)) {
-         header('location: index.php?error=true&message=Votre pseudo est déjà utilisé par un autre utilisateur');
+         header('location: index.php?error=true&message=Ce pseudo est déjà utilisé.');
          exit();
       }
 
       // Chiffrage du mot de passe
-      Securite::chiffrer($password);
+      $password = Securite::chiffrer($password);
 
-      // Création Utilisateur
+      // Ajout un utilisateur
       $utilisateur = new Utilisateur($pseudo, $email, $password);
       $utilisateur->enregistrer();
       $utilisateur->creerLesSession();
 
-      // Redirection
+      // Redirigerbb
       header('location: index.php?success=true');
       exit();
    }

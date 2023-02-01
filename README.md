@@ -51,3 +51,5 @@ Cette classe devra contenir les méthodes suivantes :
 - creerLesSessions() - Initialise les sessions qui permettent de montrer que l'utilisateur est bien connecté.
 
 Allez, vous pouvez le faire, croyez en vous autant que je crois en vous !
+
+## Correction
