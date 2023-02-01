@@ -29,6 +29,9 @@
          exit();
       }
 
+      // Chiffrage du mot de passe
+      Securite::chiffrer($password);
+
    }
 
 ?>
