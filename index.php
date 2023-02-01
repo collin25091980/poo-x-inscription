@@ -1,3 +1,37 @@
+<?php 
+
+   session_start();
+
+   if(!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['password'])) {
+      // Variables
+      $pseudo     = htmlspecialchars($_POST['pseudo']);
+      $email      = htmlspecialchars($_POST['email']);
+      $password   = htmlspecialchars($_POST['password']);
+
+      // Includes Classes
+      require_once('classes/Verifier.php');
+
+      // Verification syntaxe email
+      if(!Verifier::syntaxeEmail($email)) {
+         header('location: index.php?error=true&message=Votre adresse mail est incorrecte.');
+         exit();
+      }
+
+      // Vérification doublon email
+      if(Verifier::doublonEmail($email)) {
+         header('location: index.php?error=true&message=Votre adresse email est déjà utilisé par un autre utilisateur');
+         exit();
+      }
+
+      // Vérification doublon pseudo 
+      if(Verifier::doublonPseudo($pseudo)) {
+         header('location: index.php?error=true&message=Votre pseudo est déjà utilisé par un autre utilisateur');
+         exit();
+      }
+
+   }
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
